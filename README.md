@@ -144,4 +144,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
+4. Add a value to your user table. Create a user.
 
+### DEPLOYMENT TO HEROKU
+1. ```npm i -g heroku ``` to install heroku
+2. ```heroku login``` to login to heroku.
+3. ```heroku create``` to create an app.
+4. Rename your app by going to heroku dashboard and settings.
+5. Declare a git remote url by copying the git url produced from Step 4 and save it by running ``` git remote add [name_remote] https://git.heroku.com/umbukan-portfolio.git ```
+6. Create a Procfile by adding a file named Procfile.
+7. In Procfile, paste this code ``` web: node app.js ```
