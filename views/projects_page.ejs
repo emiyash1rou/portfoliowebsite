@@ -1,0 +1,40 @@
+<%- include('header') -%>
+<div class="shadow p-3 mb-5 bg-white rounded" style="margin: 2%; padding: 3%;">
+    <% if(data!=null){ %>
+
+
+ 
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Project Name</th>
+                <th scope="col">Project Description</th>
+                <th scope="col">Project Status</th>
+                <th scope="col">Project Progress</th>
+                <th scope="col">Project Display Picture</th>
+                <th scope="col">Project Link</th>
+                <th scope="col">Project Date</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0;i<data.length;i++){ %>
+                    <tr>
+                        <th scope="row"><%= i+1 %> </th>
+                        <td scope="row"><%= data[i].project_name %></td>
+                        <td><%= data[i].project_description %></td>
+                        <td><%= data[i].project_status %></td>
+                        <td><%= data[i].project_progress %></td>
+                        <td><img src="<%= data[i].project_dp %>" style="width: 300px; height: 200px;"></td>
+                        <td><a href="https://<%= data[i].project_link %>"><%= data[i].project_link %></a></td>
+                        <td><%= data[i].project_date %></td>
+                      </tr>
+               <% } %>
+              
+            </tbody>
+          </table>
+          <% } else{ %>
+            <h1> I don't have a record yet.</h1>
+        <%   } %>
+</div>

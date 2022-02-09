@@ -1,0 +1,50 @@
+<%- include('header') -%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+    <div style="padding: 2%;">
+        <h1 style="text-align: center;">Edit A Project</h1>
+    <form method="POST">
+        <div class="form-group">
+          <label for="project_name">Project Name</label>
+          <input type="text" class="form-control" id="project_name" name="project_name" value="<%= projects[0].project_name %>" placeholder="Enter your Project Name">
+        </div>
+        <div class="form-group">
+            <label for="project_description">Project Description</label>
+            <textarea class="form-control" id="project_description" name="project_description" rows="3"  placeholder="Enter your Project Description"><%= projects[0].project_description %></textarea>
+          </div>
+          <div class="form-group">
+            <label for="project_status">Project Status:</label>
+
+<select name="project_status" id="project_status" value="<%= projects[0].project_status %>">
+  <option value="Finished">Finished</option>
+  <option value="Ongoing">Ongoing</option>
+  <option value="Inactive">Inactive</option>
+  <option value="Planned">Planned</option>
+</select>
+          </div>
+          <div class="form-group">
+            <label for="project_progress">Project Progress:</label>
+            <input type="number"  id="project_progress" name="project_progress" min="0" max="100" placeholder="0" value="<%= projects[0].project_progress %>"> 
+            <label for="progress_gui"> Progress:</label>
+            <progress id="progress_gui" value="<%= projects[0].project_progress %>" max="100"></progress>
+            
+            
+          </div>
+        <div class="form-group">
+            <label for="project_dp">Display Picture Link</label>
+            <textarea class="form-control" id="project_dp" value="<%= projects[0].project_dp %>" name="project_dp" rows="1" placeholder="Enter your Project Display Picture"><%= projects[0].project_dp %></textarea>
+          </div>
+          <div class="form-group">
+            <label for="project_link">Display Website Link</label>
+            <textarea class="form-control" id="project_link" value="<%= projects[0].project_link %>" name="project_link" rows="1" placeholder="Enter your Project Link"><%= projects[0].project_link %></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" >Edit Project</button>
+      </form>
+    </div>
+</body>
+<script>
+    $("#project_progress").on('change keydown paste input', function(){
+        $('#progress_gui').val($('#project_progress').val())
+      
+});
+</script>
